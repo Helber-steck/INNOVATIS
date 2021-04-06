@@ -11,6 +11,7 @@ export class LoginServiceService {
 
   login(usuario){
    
+<<<<<<< Updated upstream
     return this.http.post(AppConstants.baseLogin,JSON.stringify(usuario)).subscribe(data => {
 
       console.info(JSON.parse(JSON.stringify(data))) ; 
@@ -19,3 +20,25 @@ export class LoginServiceService {
   }
 
 }
+=======
+    
+    
+    const options = {
+      headers: { 'Content-Type': ['application/json'] }
+    };
+
+    return this.http.post(AppConstants.baseLogin,JSON.stringify(usuario),(options)).subscribe(data =>{
+
+       var token = JSON.parse(JSON.stringify(data)).token;
+
+       localStorage.setItem("token", token);
+        console.info("token" + localStorage.getItem("token"));
+
+      });
+
+  
+  
+    }
+          
+  }
+>>>>>>> Stashed changes
